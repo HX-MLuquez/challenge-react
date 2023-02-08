@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./Cardi.css";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -22,7 +23,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Cardi() {
+export default function Cardi({ character }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -35,7 +36,7 @@ export default function Cardi() {
         sx={{ width: 280 }}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-           
+            {character ? character.id : ""}
           </Avatar>
         }
       />
@@ -53,10 +54,14 @@ export default function Cardi() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent sx={{ textAlign: "center" }}>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then
-            serve.
-          </Typography>
+          <Typography>{character ? character.name : null}</Typography>
+          <img
+            src={character ? character.image : ""}
+            alt={character ? character.image : ""}
+          ></img>
+          <Typography>{character ? character.homeworld : ""}</Typography>
+          <Typography>{character ? character.gender : ""}</Typography>
+          <Typography>{character ? character.species : ""}</Typography>
         </CardContent>
       </Collapse>
     </Card>
