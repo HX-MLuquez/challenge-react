@@ -1,0 +1,7 @@
+.cards{
+    display: flex;
+    justify-content: space-around;
+    padding: 2%;
+    margin-top: 18px;
+    border: solid rgba(131, 125, 125, 0.342);
+}
